@@ -1,0 +1,63 @@
+<!-- 对话页 -->
+<view class="chat-container">
+  <view class="status-bar">
+    <text class="market-status">上证 4,090 ▼0.43%</text>
+    <text class="market-status">科创50 +3.84%</text>
+    <text class="market-date">6/18 收盘</text>
+  </view>
+
+  <scroll-view class="quick-actions" scroll-x>
+    <view class="quick-btn" bindtap="quickAsk" data-q="刷新策略看板">📊 刷新看板</view>
+    <view class="quick-btn" bindtap="quickAsk" data-q="今天该怎么操作">⚡ 今日操作</view>
+    <view class="quick-btn" bindtap="quickAsk" data-q="检查纪律执行">📋 纪律检查</view>
+    <view class="quick-btn" bindtap="quickAsk" data-q="预测未来两周板块">🔮 两周预判</view>
+    <view class="quick-btn" bindtap="quickAsk" data-q="帮我做今日复盘">📝 今日复盘</view>
+  </scroll-view>
+
+  <scroll-view class="msg-list" scroll-y scroll-into-view="{{scrollToView}}" enhanced show-scrollbar="{{false}}">
+    <view class="msg-row bot">
+      <view class="avatar">🤖</view>
+      <view class="bubble bot-bubble">
+        <text class="greeting">👋 我是A股拐点助手</text>
+        <text>基于「铁三角大波段拐点体系」为你服务。</text>
+        <text>月线定方向 · 周线定节奏 · 日线定点位</text>
+        <text class="hint">点击下方按钮开始，或输入你的问题</text>
+      </view>
+    </view>
+
+    <view tt:for="{{messages}}" tt:key="id" class="msg-row {{item.role}}" id="msg-{{item.id}}">
+      <view class="avatar">{{item.role === 'user' ? '👤' : '🤖'}}</view>
+      <view class="bubble {{item.role}}-bubble">
+        <block tt:if="{{item.type === 'text'}}">
+          <text>{{item.content}}</text>
+        </block>
+        <block tt:elif="{{item.type === 'dashboard'}}">
+          <view class="mini-dashboard">
+            <text class="dash-title">📊 策略看板速览</text>
+            <view class="dash-scores">
+              <view tt:for="{{item.scores}}" tt:key="name" class="dash-row">
+                <text class="rank">{{item.rank}}</text>
+                <text class="name">{{item.name}}</text>
+                <text class="score">{{item.score}}分</text>
+              </view>
+            </view>
+            <view class="dash-action" bindtap="goDashboard">查看完整看板 →</view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view tt:if="{{loading}}" class="msg-row bot">
+      <view class="avatar">🤖</view>
+      <view class="bubble bot-bubble typing">
+        <text class="dot">●</text><text class="dot">●</text><text class="dot">●</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="input-bar">
+    <input class="msg-input" value="{{inputText}}" placeholder="输入问题..."
+           bindinput="onInput" bindconfirm="sendMsg" confirm-type="send"/>
+    <view class="send-btn" bindtap="sendMsg" tt:if="{{inputText}}">发送</view>
+  </view>
+</view>
