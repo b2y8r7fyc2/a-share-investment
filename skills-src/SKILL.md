@@ -1,8 +1,5 @@
 ---
 name: a-share-turning-point
-slug: a-share-turning-point
-displayName: A股ETF大波段拐点识别体系
-version: 1.0.0
 description: A股ETF基金投资大波段拐点识别与作战体系。由6个月实盘验证的方法论提炼而成，涵盖"铁三角"拐点识别（月线定方向+周线定节奏+日线定点位）、量化评分模型（底部/顶部双评分卡）、铁血交易纪律（8条永久规则）、支撑阻力与多空分界体系、波浪理论ETF简化应用、板块轮动规律、每日复盘框架。依赖neodata-financial-search获取实时行情/财务/资金数据，依赖tongdaxin-mcp获取K线/选股/研报。当用户要求分析A股板块、识别拐点、评估持仓、制定ETF操作计划、每日复盘、板块打分排序、两周行情预判时使用。适用场景：A股行业ETF/宽基ETF的中线波段操作，持仓周期2周以上。
 ---
 
