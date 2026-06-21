@@ -1,0 +1,34 @@
+<!-- 持仓管理页 -->
+<view class="portfolio">
+  <view class="card">
+    <text class="section-title">💰 我的持仓</text>
+    <view class="summary">
+      <text class="total-val">{{totalValue || '145'}万</text>
+      <text class="total-lbl">总资产</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="section-title">📋 当前配置</text>
+    <view class="holding-list">
+      <view wx:for="{{holdings}}" wx:key="name" class="holding-row">
+        <text class="h-name">{{item.name}}</text>
+        <text class="h-pct">{{item.pct}}%</text>
+        <text class="h-score badge badge-{{item.level}}">{{item.level}}</text>
+        <text class="h-action {{item.action === '加仓' ? 'up' : item.action === '减仓' ? 'down' : 'warn'}}">{{item.action}}</text>
+      </view>
+    </view>
+    <button class="btn-add" bindtap="addHolding">+ 添加持仓</button>
+  </view>
+
+  <view class="card">
+    <text class="section-title">⚠️ 纪律规则</text>
+    <view class="rule-list">
+      <text class="rule">· S级(≥85)上限25%，A级(75-84)上限20%</text>
+      <text class="rule">· B级(60-74)上限10%，C级(50-59)上限5%</text>
+      <text class="rule">· D/F级(<50)不持有</text>
+      <text class="rule">· 科技合计(半导体+科创+存储)≤35%</text>
+      <text class="rule">· 不碰名单：军工、传媒、游戏、次新</text>
+    </view>
+  </view>
+</view>

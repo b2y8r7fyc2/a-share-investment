@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/chat/chat",
+    "pages/dashboard/dashboard",
+    "pages/portfolio/portfolio",
+    "pages/settings/settings"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1a1f2e",
+    "navigationBarTitleText": "A股拐点助手",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0f1117"
+  },
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#ffd93d",
+    "backgroundColor": "#1a1f2e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/chat/chat",
+        "text": "对话",
+        "iconPath": "images/chat.png",
+        "selectedIconPath": "images/chat-active.png"
+      },
+      {
+        "pagePath": "pages/dashboard/dashboard",
+        "text": "看板",
+        "iconPath": "images/dashboard.png",
+        "selectedIconPath": "images/dashboard-active.png"
+      },
+      {
+        "pagePath": "pages/portfolio/portfolio",
+        "text": "持仓",
+        "iconPath": "images/portfolio.png",
+        "selectedIconPath": "images/portfolio-active.png"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "我的",
+        "iconPath": "images/settings.png",
+        "selectedIconPath": "images/settings-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

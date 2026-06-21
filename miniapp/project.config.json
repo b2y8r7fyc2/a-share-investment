@@ -1,0 +1,16 @@
+{
+  "description": "A股ETF大波段拐点助手 - 基于铁三角拐点体系",
+  "packOptions": { "ignore": [] },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "appid": "你的小程序AppID",
+  "projectname": "a-share-turning-point",
+  "libVersion": "3.3.4",
+  "condition": {}
+}

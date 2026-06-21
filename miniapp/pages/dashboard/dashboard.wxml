@@ -1,0 +1,58 @@
+<!-- 策略看板页 -->
+<view class="dashboard">
+  <view class="header">
+    <text class="title">A股ETF大波段拐点策略看板</text>
+    <text class="sub">铁三角体系 · {{updateTime || '等待数据更新'}}</text>
+  </view>
+
+  <!-- 大盘环境 -->
+  <view class="card">
+    <text class="section-title">📈 大盘环境</text>
+    <view class="index-row">
+      <view class="index-item"><text class="val warn">{{market.sh || '--'}}</text><text class="lbl">上证指数</text></view>
+      <view class="index-item"><text class="val up">{{market.sz || '--'}}</text><text class="lbl">深证成指</text></view>
+      <view class="index-item"><text class="val up">{{market.kc50 || '--'}}</text><text class="lbl">科创50</text></view>
+      <view class="index-item"><text class="val">{{market.cycle || '--'}}</text><text class="lbl">情绪周期</text></view>
+    </view>
+  </view>
+
+  <!-- 板块评分排名 -->
+  <view class="card">
+    <text class="section-title">🏆 板块量化评分</text>
+    <view class="score-list">
+      <view wx:for="{{scores}}" wx:key="name" class="score-row">
+        <text class="rank-badge rank-{{index < 3 ? 'top' : 'normal'}}">{{index + 1}}</text>
+        <text class="sector-name">{{item.name}}</text>
+        <view class="score-bar-wrap">
+          <view class="score-bar" style="width:{{item.score}}%;background:{{item.score >= 75 ? '#6bcb77' : item.score >= 60 ? '#ffb74d' : '#ff6b6b'}}"></view>
+        </view>
+        <text class="score-num">{{item.score}}</text>
+        <text class="level badge badge-{{item.level}}">{{item.level}}</text>
+        <text class="pred pred-{{item.prediction > 3 ? 'up' : item.prediction < 0 ? 'down' : 'flat'}}">{{item.prediction >= 0 ? '+' : ''}}{{item.prediction}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作建议 -->
+  <view class="card" wx:if="{{operations.length}}">
+    <text class="section-title">⚡ 明日操作建议</text>
+    <view wx:for="{{operations}}" wx:key="text" class="op-row {{item.action === 'sell' ? 'op-sell' : 'op-buy'}}">
+      <text class="op-tag {{item.action === 'sell' ? 'tag-sell' : 'tag-buy'}}">{{item.action === 'sell' ? '卖出' : '买入'}}</text>
+      <text class="op-text">{{item.text}}</text>
+    </view>
+  </view>
+
+  <!-- 纪律检查 -->
+  <view class="card" wx:if="{{alerts.length}}">
+    <text class="section-title">⚠️ 纪律警报</text>
+    <view wx:for="{{alerts}}" wx:key="text" class="alert-row">
+      <text class="alert-icon">🔴</text>
+      <text class="alert-text">{{item.text}}</text>
+    </view>
+  </view>
+
+  <view class="refresh-bar">
+    <button class="btn-primary" bindtap="refreshDashboard" loading="{{loading}}">🔄 刷新看板</button>
+    <text class="refresh-hint">数据来源：neodata-financial-search</text>
+  </view>
+</view>

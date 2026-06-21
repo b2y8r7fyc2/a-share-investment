@@ -1,0 +1,40 @@
+<view class="settings">
+  <view class="card">
+    <text class="section-title">👤 Skill 信息</text>
+    <view class="info-row"><text class="label">名称</text><text class="value">A股ETF大波段拐点识别体系</text></view>
+    <view class="info-row"><text class="label">版本</text><text class="value">v1.0.0</text></view>
+    <view class="info-row"><text class="label">SkillHub ID</text><text class="value">90044</text></view>
+    <view class="info-row"><text class="label">GitHub</text><text class="value">b2y8r7fyc2/a-share-investment</text></view>
+  </view>
+
+  <view class="card">
+    <text class="section-title">⚙️ 投资偏好</text>
+    <view class="info-row"><text class="label">风格</text><text class="value">老登股/蓝筹ETF</text></view>
+    <view class="info-row"><text class="label">日最大回撤</text><text class="value">5%</text></view>
+    <view class="info-row"><text class="label">年收益目标</text><text class="value">20%</text></view>
+    <view class="info-row"><text class="label">不碰板块</text><text class="value">军工、传媒、游戏、次新</text></view>
+  </view>
+
+  <view class="card">
+    <text class="section-title">📋 数据源</text>
+    <view class="info-row"><text class="label">行情/财务</text><text class="value">neodata-financial-search</text></view>
+    <view class="info-row"><text class="label">K线/选股</text><text class="value">待授权（tongdaxin-mcp）</text></view>
+    <view class="info-row"><text class="label">券商观点</text><text class="value">和讯投顾</text></view>
+  </view>
+
+  <view class="card">
+    <text class="section-title">📖 交易框架</text>
+    <view class="framework-text">
+      <text>月线定方向 · 周线定节奏 · 日线定点位</text>
+      <text>铁三角拐点识别（100分制）</text>
+      <text>9条永久交易纪律</text>
+      <text>不幻想 · 不讨好 · 不摇摆 · 可校验</text>
+    </view>
+  </view>
+
+  <view class="footer">
+    <text>© 2026 A股拐点助手</text>
+    <text>基于 a-share-turning-point Skill</text>
+    <text>6个月实盘验证</text>
+  </view>
+</view>

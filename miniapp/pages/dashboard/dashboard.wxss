@@ -1,0 +1,32 @@
+.dashboard { padding-bottom:100px; }
+.header { background:linear-gradient(135deg,#1a1f2e,#2d1f3d); padding:24px 16px; text-align:center; }
+.title { font-size:20px; font-weight:800; display:block; background:linear-gradient(90deg,#ff6b6b,#ffd93d,#6bcb77); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.sub { font-size:11px; color:#888; }
+.section-title { font-size:14px; font-weight:600; color:#ffd93d; margin-bottom:12px; display:block; }
+.index-row { display:flex; justify-content:space-around; }
+.index-item { text-align:center; }
+.index-item .val { font-size:16px; font-weight:700; display:block; }
+.index-item .lbl { font-size:11px; color:#666; }
+
+.score-list {  }
+.score-row { display:flex; align-items:center; padding:6px 0; gap:8px; font-size:12px; border-bottom:1px solid #1e2230; }
+.rank-badge { width:22px; text-align:center; font-weight:600; color:#888; }
+.rank-top { color:#ffd93d; }
+.sector-name { width:70px; flex-shrink:0; color:#e0e0e0; font-weight:500; }
+.score-bar-wrap { flex:1; height:10px; background:#1e2230; border-radius:5px; overflow:hidden; }
+.score-bar { height:100%; border-radius:5px; }
+.score-num { width:24px; text-align:right; font-weight:700; color:#e0e0e0; }
+.pred { width:40px; text-align:right; font-size:11px; }
+
+.op-row { display:flex; align-items:center; padding:6px 0; gap:8px; font-size:13px; }
+.op-sell { border-left:3px solid #ff6b6b; padding-left:8px; }
+.op-buy { border-left:3px solid #6bcb77; padding-left:8px; }
+.op-tag { font-size:10px; padding:1px 6px; border-radius:4px; }
+.tag-sell { background:#b71c1c; color:#ff8a80; }
+.tag-buy { background:#1b5e20; color:#6bcb77; }
+
+.alert-row { display:flex; align-items:flex-start; gap:6px; padding:4px 0; font-size:12px; }
+.alert-icon { font-size:14px; }
+
+.refresh-bar { text-align:center; padding:20px; }
+.refresh-hint { font-size:10px; color:#444; display:block; margin-top:6px; }
