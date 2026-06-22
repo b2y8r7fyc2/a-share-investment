@@ -1,0 +1,110 @@
+<!-- pages/review/review.ttml - 每日复盘 -->
+<view class="container">
+  <!-- 顶部 -->
+  <view class="header">
+    <text class="date">📋 {{date}} 每日复盘</text>
+    <view class="violation-badge">
+      <text class="badge-num">{{violationCount}}</text>
+      <text class="badge-label">项违规</text>
+    </view>
+  </view>
+
+  <!-- 纪律检查 -->
+  <view class="section">
+    <view class="section-title">🛡️ 15条纪律检查</view>
+    <view class="discipline-list">
+      <view class="discipline-item {{item.violated ? 'violated' : 'passed'}}" 
+            tt:for="{{disciplines}}" tt:key="id">
+        <view class="di-left">
+          <text class="di-indicator">{{item.violated ? '❌' : '✅'}}</text>
+        </view>
+        <view class="di-body">
+          <text class="di-title">{{item.title}}</text>
+          <text class="di-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 违规汇总 -->
+  <view class="section violation-section" tt:if="{{violations.length > 0}}">
+    <view class="section-title danger">🚨 今日违规（{{violationCount}}项）</view>
+    <view class="violation-item" tt:for="{{violations}}" tt:key="*this">
+      <text class="vi-text">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 资金流向 -->
+  <view class="section">
+    <view class="section-title">💰 今日主力资金TOP5</view>
+    <view class="flow-row">
+      <view class="flow-col">
+        <text class="flow-label green">📈 流入</text>
+        <view class="flow-item green" tt:for="{{fundFlow.topInflow}}" tt:key="sector">
+          <text class="fi-name">{{item.sector}}</text>
+          <text class="fi-amount">{{item.amount}}</text>
+        </view>
+      </view>
+      <view class="flow-col">
+        <text class="flow-label red">📉 流出</text>
+        <view class="flow-item red" tt:for="{{fundFlow.topOutflow}}" tt:key="sector">
+          <text class="fi-name">{{item.sector}}</text>
+          <text class="fi-amount">{{item.amount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 持仓资金对照 -->
+  <view class="section">
+    <view class="section-title">🔍 持仓 vs 主力方向</view>
+    <view class="pf-item {{item.color}}" tt:for="{{portfolioFlow}}" tt:key="sector">
+      <text class="pf-name">{{item.sector}}</text>
+      <text class="pf-status">{{item.holding ? '✅ 持有' : '-'}}</text>
+      <text class="pf-flow {{item.color}}">{{item.amount}}</text>
+      <text class="pf-dir">{{item.inflow ? '主力在买' : '主力在跑'}}</text>
+    </view>
+    <view class="flow-summary">
+      <text class="fs-warn">⚠️ 8个持仓中仅电网设备有主力买入，其余7个主力在出逃</text>
+    </view>
+  </view>
+
+  <!-- 今日策略 -->
+  <view class="section strategy-section">
+    <view class="section-title">🎯 今日操作策略</view>
+    
+    <view class="strat-block must">
+      <text class="strat-label">🚨 必须执行</text>
+      <view class="strat-item" tt:for="{{strategy.mustDo}}" tt:key="action">
+        <text class="si-action">{{item.action}}</text>
+        <text class="si-reason">{{item.reason}}</text>
+      </view>
+    </view>
+
+    <view class="strat-block reduce">
+      <text class="strat-label">⚠️ 减仓操作</text>
+      <view class="strat-item" tt:for="{{strategy.reduce}}" tt:key="action">
+        <text class="si-action">{{item.action}}</text>
+        <text class="si-reason">{{item.reason}}</text>
+      </view>
+    </view>
+
+    <view class="strat-block watch">
+      <text class="strat-label">📝 观察等待</text>
+      <view class="strat-item" tt:for="{{strategy.watch}}" tt:key="*this">
+        <text class="si-action">{{item}}</text>
+      </view>
+    </view>
+
+    <view class="strat-block avoid">
+      <text class="strat-label">🛑 禁止操作</text>
+      <view class="strat-item" tt:for="{{strategy.avoid}}" tt:key="*this">
+        <text class="si-action">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <text class="footer-text">数据截止：2026-06-22 11:30 | NeoData实时数据</text>
+  </view>
+</view>

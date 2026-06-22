@@ -1,0 +1,208 @@
+/* pages/review/review.ttss - 每日复盘样式 */
+
+.container {
+  background: #0f0f23;
+  min-height: 100vh;
+  padding: 16px;
+  padding-bottom: 100px;
+}
+
+/* 顶部 */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: linear-gradient(135deg, #1a1a3e, #16213e);
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+.date {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+.violation-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255,80,80,0.15);
+  border: 2px solid #ff5050;
+  border-radius: 12px;
+  padding: 8px 16px;
+}
+.badge-num {
+  color: #ff5050;
+  font-size: 28px;
+  font-weight: 800;
+}
+.badge-label {
+  color: #ff7070;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* 通用分区 */
+.section {
+  background: #16213e;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.section-title {
+  color: #8892b0;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.section-title.danger {
+  color: #ff5050;
+}
+
+/* 纪律列表 */
+.discipline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.discipline-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+}
+.discipline-item.violated {
+  background: rgba(255,80,80,0.08);
+  border-left: 3px solid #ff5050;
+}
+.discipline-item.passed {
+  border-left: 3px solid #00b894;
+}
+.di-left {
+  margin-right: 10px;
+  margin-top: 2px;
+}
+.di-indicator {
+  font-size: 14px;
+}
+.di-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.di-title {
+  color: #ccd6f6;
+  font-size: 13px;
+  font-weight: 600;
+}
+.di-desc {
+  color: #8892b0;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+/* 违规汇总 */
+.violation-section {
+  background: rgba(255,80,80,0.06);
+  border: 1px solid rgba(255,80,80,0.2);
+}
+.violation-item {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.violation-item:last-child {
+  border-bottom: none;
+}
+.vi-text {
+  color: #ff7070;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* 资金流向 */
+.flow-row {
+  display: flex;
+  gap: 12px;
+}
+.flow-col {
+  flex: 1;
+}
+.flow-label {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: block;
+}
+.flow-label.green { color: #00b894; }
+.flow-label.red { color: #ff5050; }
+.flow-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.fi-name { color: #ccd6f6; font-size: 11px; }
+.green .fi-amount { color: #00b894; font-weight: 700; }
+.red .fi-amount { color: #ff5050; font-weight: 700; }
+
+/* 持仓资金对照 */
+.pf-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  background: rgba(255,255,255,0.03);
+}
+.pf-item.red { border-left: 3px solid #ff5050; }
+.pf-item.green { border-left: 3px solid #00b894; }
+.pf-name { color: #ccd6f6; font-size: 12px; font-weight: 600; flex: 1.5; }
+.pf-status { color: #8892b0; font-size: 10px; flex: 0.8; text-align: center; }
+.pf-flow { font-size: 12px; font-weight: 700; flex: 1; text-align: center; }
+.pf-flow.red { color: #ff5050; }
+.pf-flow.green { color: #00b894; }
+.pf-dir { color: #8892b0; font-size: 10px; flex: 1; text-align: right; }
+.flow-summary {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: rgba(255,80,80,0.08);
+  border-radius: 6px;
+}
+.fs-warn { color: #ff7070; font-size: 11px; line-height: 1.5; }
+
+/* 策略 */
+.strat-block {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.strat-block.must { background: rgba(255,80,80,0.08); border: 1px solid rgba(255,80,80,0.3); }
+.strat-block.reduce { background: rgba(255,166,0,0.08); border: 1px solid rgba(255,166,0,0.3); }
+.strat-block.watch { background: rgba(0,184,148,0.06); border: 1px solid rgba(0,184,148,0.2); }
+.strat-block.avoid { background: rgba(136,146,176,0.05); border: 1px solid rgba(136,146,176,0.2); }
+.strat-label {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: block;
+}
+.strat-block.must .strat-label { color: #ff5050; }
+.strat-block.reduce .strat-label { color: #ffa600; }
+.strat-block.watch .strat-label { color: #00b894; }
+.strat-block.avoid .strat-label { color: #8892b0; }
+.strat-item {
+  padding: 4px 0;
+  display: flex;
+  flex-direction: column;
+}
+.si-action { color: #ccd6f6; font-size: 12px; font-weight: 600; }
+.si-reason { color: #8892b0; font-size: 10px; margin-top: 2px; }
+
+/* 底部 */
+.footer {
+  text-align: center;
+  padding: 20px;
+}
+.footer-text { color: #4a5568; font-size: 10px; }
