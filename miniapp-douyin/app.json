@@ -1,12 +1,14 @@
 {
   "pages": [
-    "pages/chat/chat",
     "pages/dashboard/dashboard",
+    "pages/predict/predict",
+    "pages/review/review",
     "pages/portfolio/portfolio",
+    "pages/chat/chat",
     "pages/settings/settings"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#1a1f2e",
+    "navigationBarBackgroundColor": "#1a1a2e",
     "navigationBarTitleText": "A股拐点助手",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#0f1117"
@@ -17,10 +19,10 @@
     "backgroundColor": "#1a1f2e",
     "borderStyle": "black",
     "list": [
-      { "pagePath":"pages/chat/chat", "text":"对话" },
-      { "pagePath":"pages/dashboard/dashboard", "text":"看板" },
-      { "pagePath":"pages/portfolio/portfolio", "text":"持仓" },
-      { "pagePath":"pages/settings/settings", "text":"我的" }
+      { "pagePath": "pages/dashboard/dashboard", "text": "看板" },
+      { "pagePath": "pages/predict/predict", "text": "预测" },
+      { "pagePath": "pages/review/review", "text": "复盘" },
+      { "pagePath": "pages/settings/settings", "text": "我的" }
     ]
   }
 }

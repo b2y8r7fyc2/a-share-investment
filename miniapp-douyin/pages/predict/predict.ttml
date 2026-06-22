@@ -1,0 +1,78 @@
+<view class="predict-page">
+  <!-- ===== 顶部：日期 + 总仓位 ===== -->
+  <view class="header-card">
+    <text class="date-label">📅 {{date}}</text>
+    <view class="position-wrap">
+      <view class="position-circle">
+        <text class="position-num">{{totalPosition.min}}-{{totalPosition.max}}%</text>
+        <text class="position-label">建议总仓</text>
+      </view>
+    </view>
+    <view class="direction-row">
+      <text class="direction-icon">🔻</text>
+      <text class="direction-text">{{direction}}</text>
+    </view>
+  </view>
+
+  <!-- ===== 13板块预测卡片 ===== -->
+  <scroll-view class="sector-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+    <view
+      tt:for="{{sectors}}"
+      tt:key="name"
+      class="sector-card"
+    >
+      <!-- 卡片顶部：板块名 + 评分 -->
+      <view class="card-top">
+        <text class="sector-name">{{item.name}}</text>
+        <view class="score-badge {{'level-' + item.level.charAt(0)}}">
+          <text class="score-num">{{item.score}}</text>
+          <text class="score-level">{{item.level}}</text>
+        </view>
+      </view>
+
+      <!-- 预判行 -->
+      <view class="predict-rows">
+        <view class="predict-row">
+          <text class="predict-label">1周预判</text>
+          <text class="predict-arrow {{item.week.trend === 'up' ? 'trend-up' : item.week.trend === 'down' ? 'trend-down' : 'trend-flat'}}">
+            {{item.week.trend === 'up' ? '↗️' : item.week.trend === 'down' ? '↘️' : '→'}}
+          </text>
+          <text class="predict-text">{{item.week.text}}</text>
+        </view>
+        <view class="predict-row">
+          <text class="predict-label">1月预判</text>
+          <text class="predict-text">{{item.month.text}}</text>
+        </view>
+      </view>
+
+      <!-- 支撑/阻力 -->
+      <view class="sr-row" tt:if="{{item.support !== '—' || item.resistance !== '—'}}">
+        <view class="sr-item" tt:if="{{item.support !== '—'}}">
+          <text class="sr-label">支撑</text>
+          <text class="sr-val support-val">{{item.support}}</text>
+        </view>
+        <view class="sr-item" tt:if="{{item.resistance !== '—'}}">
+          <text class="sr-label">阻力</text>
+          <text class="sr-val resistance-val">{{item.resistance}}</text>
+        </view>
+      </view>
+
+      <!-- 底部：操作建议 + 资金标签 -->
+      <view class="card-bottom">
+        <text class="advice-text">💡 {{item.advice}}</text>
+        <text class="fund-tag tag-{{item.fundTagClass}}">{{item.fundTag}}</text>
+      </view>
+    </view>
+
+    <!-- ===== 综合预判 ===== -->
+    <view class="sector-card summary-card">
+      <view class="card-top">
+        <text class="sector-name">📊 综合预判</text>
+        <view class="score-badge level-summary">
+          <text class="score-level">总览</text>
+        </view>
+      </view>
+      <text class="summary-text">{{summary.text}}</text>
+    </view>
+  </scroll-view>
+</view>
